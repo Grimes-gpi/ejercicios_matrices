@@ -1,0 +1,47 @@
+public class Main {
+
+    public static int[][] sumaMatriz(int[][] matriz1, int[][] matriz2) {
+        //Aqui comparamos las matrices si tienen el  mismo tamaño
+        if (matriz1.length == 0 || matriz1.length != matriz2.length || matriz1[0].length != matriz2[0].length) {
+            throw new IllegalArgumentException("Las matrices deben tener el mismo tamaño");
+            //Si no tienen el mismo tamaño retorna a una excepcion
+        }
+
+        // Creamos una matriz nueva para meter la matriz sumada
+        int filas = matriz1.length;
+        int columnas = matriz1[0].length;
+        int[][] resultado = new int[filas][columnas];
+
+        // Reccorremos las matrices y las sumamos
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                resultado[i][j] = matriz1[i][j] + matriz2[i][j];
+            }
+        }
+        return resultado;
+    }
+    public static void main(String[] args) {
+
+        int[][] matriz1 = {
+                {1, 2, 3},
+                {4, 5, 6}
+        };
+
+        int[][] matriz2 = {
+                {7, 8, 9},
+                {10, 11, 12}
+        };
+
+        int[][] resultado = sumaMatriz(matriz1, matriz2);
+        //Aqui  ya recorrida la matriz la imprimimos
+        for (int i = 0; i < resultado.length; i++) {
+            for (int j = 0; j < resultado[i].length; j++) {
+                System.out.print(resultado[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
+
+
+
