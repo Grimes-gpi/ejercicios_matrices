@@ -1,0 +1,40 @@
+public class Main {
+
+    public static int[][] transponerMatriz(int[][] matriz) {
+        //No puede haber una matriz vacia
+        if (matriz.length == 0) {
+            return new int[0][0];
+        }
+
+        // Creamos una matriz para guardar la transpuesta
+        int filas = matriz.length;
+        int columnas = matriz[0].length;
+        int[][] transpuesta = new int[columnas][filas];
+
+        //Recorremos la matriz para transponer
+        for (int i = 0; i < filas; i++) {
+            for (int j = 0; j < columnas; j++) {
+                transpuesta[j][i] = matriz[i][j];
+            }
+        }
+        return transpuesta;
+    }
+
+    public static void main(String[] args) {
+        // Ejemplo de uso
+        int[][] matriz = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 9}
+        };
+
+        int[][] transpuesta = transponerMatriz(matriz);
+        //Lanzamos el codigo
+        for (int i = 0; i < transpuesta.length; i++) {
+            for (int j = 0; j < transpuesta[i].length; j++) {
+                System.out.print(transpuesta[i][j] + " ");
+            }
+            System.out.println();
+        }
+    }
+}
